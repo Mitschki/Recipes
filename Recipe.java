@@ -1,14 +1,14 @@
 import java.util.ArrayList;
 
-abstract class Recipe
+class Recipe
 {
-	String name, note;
-	int difficulty, time;
-	ArrayList<Ingred> ingredList = new ArrayList<>();
+	private String name, note;
+	private int difficulty, time;
+	private ArrayList<Ingred> ingredList = new ArrayList<>();
 	
-	void inputName()
+	void inputName(String name)
 	{
-		
+		this.name = name;
 	}
 	
 	void editName()
@@ -16,9 +16,9 @@ abstract class Recipe
 		
 	}
 	
-	void inputDifficulty()
+	void inputDifficulty(int difficulty)
 	{
-		
+		this.difficulty = difficulty;
 	}
 	
 	void editDifficulty()
@@ -36,9 +36,14 @@ abstract class Recipe
 		
 	}
 	
-	void addIngred()
+	void addIngred(Ingred newIngred)
 	{
-		
+		ingredList.add(newIngred);
+	}
+	
+	ArrayList<Ingred> ingredList()
+	{
+		return ingredList;
 	}
 	
 	void editIngred()
@@ -64,6 +69,20 @@ abstract class Recipe
 	void deleteNote()
 	{
 		
+	}
+	
+	public String toString()
+	{
+		StringBuilder sb = new StringBuilder();
+		sb.append(this.name+"\n\n");
+		sb.append("Schwierigkeit/Aufwand: "+this.difficulty+"\n\n");
+		sb.append("Zutaten: \n");
+		for(int i=0; i<ingredList.size() ;i++)
+		{
+			Ingred ing = ingredList.get(i);
+			sb.append(ing);
+		}
+		return sb.toString();
 	}
 	
 }

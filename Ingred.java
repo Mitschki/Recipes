@@ -2,17 +2,37 @@
 public class Ingred
 {
 	String name;
-	private enum MeasureDE
+	int menge;
+	MeasureDE einheit;
+	
+	Ingred(String name, MeasureDE einheit)
 	{
-		Gramm, Pfund, Kilogramm, Mililiter, Liter, Tropfen, Spritzer, Schuss, Prise, Messerspitze, Teelöffel, Esslöffel, Tasse, Stück 
+		this.name = name;
+		this.einheit = einheit;
 	}
-	private enum MeasureGB
+	
+	public enum MeasureDE
 	{
-		gram, pound, kilogram, mililiter, liter, fluidOunce, drop, dash, pinch, saltspoon, teaspoon, tablespoon, teacup, cup, piece 
+		Gramm, Pfund, Kilogramm, Mililiter, Liter, Tropfen, Spritzer, Schuss, Prise, Messerspitze, Teelöffel, Esslöffel, Tasse, Stück, Unknown 
 	}
-	private enum MeasureUS
+//	private enum MeasureGB
+//	{
+//		gram, pound, kilogram, mililiter, liter, fluidOunce, drop, dash, pinch, saltspoon, teaspoon, tablespoon, teacup, cup, piece 
+//	}
+//	private enum MeasureUS
+//	{
+//		grain, ounce, pound, fluidOunce, drop, dash, pinch, pint, quart, gallon, teaspoon, tablespoon, cup, piece 
+//	}
+	
+	static MeasureDE strToMeasure(String einheit)
 	{
-		grain, ounce, pound, fluidOunce, drop, dash, pinch, pint, quart, gallon, teaspoon, tablespoon, cup, piece 
+		einheit.toLowerCase().trim();
+		if(einheit.equals("gramm"))
+			return MeasureDE.Gramm;
+		else if(einheit.equals("pfund"))
+			return MeasureDE.Pfund;
+		else
+			return MeasureDE.Unknown;
 	}
 	
 	void inputName()
@@ -35,19 +55,8 @@ public class Ingred
 		
 	}
 	
-//	Klassenverwaltung?
-//	void add()
-//	{
-//		
-//	}
-//	
-//	void edit()
-//	{
-//		
-//	}
-//	
-//	void delete()
-//	{
-//		
-//	}
+	public String toString()
+	{
+		return new String(einheit+" "+name);
+	}
 }
