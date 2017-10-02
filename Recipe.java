@@ -26,9 +26,9 @@ class Recipe
 		
 	}
 	
-	void inputTime()
+	void inputTime(int time)
 	{
-		
+		this.time = time;
 	}
 	
 	void editTime()
@@ -56,9 +56,9 @@ class Recipe
 		
 	}
 	
-	void inputNote()
+	void inputNote(String note)
 	{
-		
+		this.note = note;
 	}
 	
 	void editNote()
@@ -75,13 +75,16 @@ class Recipe
 	{
 		StringBuilder sb = new StringBuilder();
 		sb.append(this.name+"\n\n");
-		sb.append("Schwierigkeit/Aufwand: "+this.difficulty+"\n\n");
+		sb.append("Schwierigkeitsgrad: "+this.difficulty+"\n");
+		sb.append("Zeitaufwand: "+this.time+" Minuten\n\n");
 		sb.append("Zutaten: \n");
 		for(int i=0; i<ingredList.size() ;i++)
 		{
 			Ingred ing = ingredList.get(i);
-			sb.append(ing);
+			sb.append(ing+"\n");
 		}
+		sb.append("\n");
+		sb.append("Notizen: "+"\n"+this.note);
 		return sb.toString();
 	}
 	

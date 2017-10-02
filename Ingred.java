@@ -5,8 +5,9 @@ public class Ingred
 	int menge;
 	MeasureDE einheit;
 	
-	Ingred(String name, MeasureDE einheit)
+	Ingred(int menge, String name, MeasureDE einheit)
 	{
+		this.menge = menge;
 		this.name = name;
 		this.einheit = einheit;
 	}
@@ -26,11 +27,35 @@ public class Ingred
 	
 	static MeasureDE strToMeasure(String einheit)
 	{
-		einheit.toLowerCase().trim();
+		einheit=einheit.toLowerCase().trim();
 		if(einheit.equals("gramm"))
 			return MeasureDE.Gramm;
 		else if(einheit.equals("pfund"))
 			return MeasureDE.Pfund;
+		else if(einheit.equals("kilogramm"))
+			return MeasureDE.Kilogramm;
+		else if(einheit.equals("mililiter"))
+			return MeasureDE.Mililiter;
+		else if(einheit.equals("liter"))
+			return MeasureDE.Liter;
+		else if(einheit.equals("tropfen"))
+			return MeasureDE.Tropfen;
+		else if(einheit.equals("spritzer"))
+			return MeasureDE.Spritzer;
+		else if(einheit.equals("schuss"))
+			return MeasureDE.Schuss;
+		else if(einheit.equals("prise"))
+			return MeasureDE.Prise;
+		else if(einheit.equals("messerspitze"))
+			return MeasureDE.Messerspitze;
+		else if(einheit.equals("teelöffel"))
+			return MeasureDE.Teelöffel;
+		else if(einheit.equals("esslöffel"))
+			return MeasureDE.Esslöffel;
+		else if(einheit.equals("tasse"))
+			return MeasureDE.Tasse;
+		else if(einheit.equals("stück"))
+			return MeasureDE.Stück;
 		else
 			return MeasureDE.Unknown;
 	}
@@ -57,6 +82,6 @@ public class Ingred
 	
 	public String toString()
 	{
-		return new String(einheit+" "+name);
+		return new String(menge+" "+einheit+" "+name);
 	}
 }
